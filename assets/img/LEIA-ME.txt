@@ -1,0 +1,18 @@
+IMAGENS QUE VOCE PRECISA ADICIONAR NESTA PASTA (assets/img/)
+=============================================================
+Enquanto uma imagem nao existir, o site mostra um bloco laranja/marrom no lugar.
+
+hero.jpg              Foto principal (vertical, 4:5, ex.: 1000x1250). Foto de corrida com camiseta laranja.
+sobre.jpg             Foto da secao "Quem e Lucas" (vertical, 4:5, ex.: 800x1000).
+corrida-1.jpg         Foto quadrada (800x800) para a faixa de fotos.
+corrida-2.jpg         Foto quadrada (800x800).
+corrida-3.jpg         Foto quadrada (800x800).
+corrida-4.jpg         Foto quadrada (800x800).
+logo-max-titanium.png Logo da Max Titanium (fundo transparente, branca ou colorida).
+logo-atomic-labs.png  Logo da Atomic Labs (fundo transparente).
+og-image.jpg          Imagem de compartilhamento (WhatsApp/Instagram/LinkedIn), 1200x630.
+
+DICAS DE OTIMIZACAO
+- Exporte em JPG qualidade 80 ou WebP. Mantenha cada foto abaixo de 250 KB.
+- hero.jpg e a imagem mais importante para velocidade: comprima bem.
+- Nomes de arquivo sem acento e sem espaco.
