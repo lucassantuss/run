@@ -78,25 +78,53 @@
     videoBox.hidden = false;
   });
 
-  // ---------- MARCAS: FOTOS, LINKS E RESULTADOS (js/dados.js) ----------
-  document.querySelectorAll('[data-brand]').forEach(function (card) {
-    var info = (data.marcas || {})[card.dataset.brand];
-    var box = card.querySelector('.brand-extra');
-    if (!info || !box) return;
-    var photos = (info.fotos || []).filter(function (p) { return p.src; });
-    if (photos.length) {
-      var gallery = create('div', { className: 'gallery' });
-      photos.forEach(function (p) {
-        gallery.appendChild(create('img', { src: p.src, alt: p.alt || '', loading: 'lazy', decoding: 'async' }));
-      });
-      box.appendChild(gallery);
-    }
-    if (info.resultados) box.appendChild(create('p', { className: 'results', textContent: info.resultados }));
-    (info.links || []).forEach(function (l) {
-      if (isSafeUrl(l.url)) box.appendChild(externalLink(l.url, 'text-link', (l.texto || 'Ver publicação') + ' ↗'));
+  // ---------- PAINEL DE AUDIÊNCIA (js/dados.js) ----------
+  var aud = data.audiencia;
+  var audBox = document.getElementById('audiencia');
+  function percent(n) { return Math.max(0, Math.min(100, Number(n) || 0)); }
+  if (aud && audBox) {
+    var kpis = document.getElementById('aud-kpis');
+    (aud.indicadores || []).forEach(function (k) {
+      var item = create('div');
+      item.appendChild(create('dt', { textContent: k.nome }));
+      item.appendChild(create('dd', { textContent: k.valor }));
+      kpis.appendChild(item);
     });
-    box.hidden = !box.children.length;
-  });
+    var growth = aud.evolucao || [];
+    var max = Math.max.apply(null, growth.map(function (g) { return g.seguidores; }).concat(1));
+    var columns = document.getElementById('aud-growth');
+    growth.forEach(function (g) {
+      var li = create('li');
+      li.appendChild(create('b', { textContent: (g.seguidores / 1000).toLocaleString('pt-BR', { maximumFractionDigits: 1 }) + 'k' }));
+      var track = create('span', { className: 'track' });
+      var fill = create('i');
+      fill.style.height = percent(g.seguidores / max * 100) + '%';
+      track.appendChild(fill);
+      li.appendChild(track);
+      li.appendChild(create('span', { textContent: g.mes }));
+      columns.appendChild(li);
+    });
+    var demo = document.getElementById('aud-demo');
+    (aud.demografia || []).forEach(function (group) {
+      var block = create('div', { className: 'demo-group' });
+      block.appendChild(create('h4', { textContent: group.titulo }));
+      group.itens.forEach(function (item) {
+        var row = create('div', { className: 'bar' });
+        row.appendChild(create('span', { textContent: item.nome }));
+        var track = create('span', { className: 'track' });
+        var fill = create('i');
+        fill.style.width = percent(item.percentual) + '%';
+        track.appendChild(fill);
+        row.appendChild(track);
+        row.appendChild(create('span', { textContent: percent(item.percentual) + '%' }));
+        block.appendChild(row);
+      });
+      demo.appendChild(block);
+    });
+    // o aviso só some quando você marcar exemplo: false
+    document.getElementById('aud-flag').hidden = aud.exemplo === false;
+    audBox.hidden = false;
+  }
 
   // ---------- ANIMAÇÕES ----------
   // O valor real já está no HTML: sem JavaScript (ou antes da animação) nunca aparece zero.
@@ -142,53 +170,6 @@
     document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('visible'); });
   }
 
-  // ---------- COPIAR CUPOM ----------
-  var toast = document.getElementById('toast');
-  var toastTimer;
-  function showToast(msg) {
-    if (!toast) return;
-    toast.textContent = msg;
-    toast.classList.add('show');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 2600);
-  }
-  function fallbackCopy(text) {
-    var ta = create('textarea', { value: text });
-    ta.setAttribute('readonly', '');
-    ta.style.position = 'fixed';
-    ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.select();
-    var ok = false;
-    try { ok = document.execCommand('copy'); } catch (e) {}
-    document.body.removeChild(ta);
-    return ok;
-  }
-  document.querySelectorAll('.copy-btn').forEach(function (btn) {
-    var original = btn.textContent;
-    var timer;
-    btn.addEventListener('click', function () {
-      var code = btn.dataset.copy;
-      function done() {
-        btn.textContent = 'Copiado ✓';
-        btn.classList.add('copied');
-        showToast('Cupom ' + code + ' copiado!');
-        track('copy_coupon', { coupon: code });
-        clearTimeout(timer);
-        timer = setTimeout(function () { btn.textContent = original; btn.classList.remove('copied'); }, 2200);
-      }
-      function fallback() {
-        if (fallbackCopy(code)) done();
-        else showToast('Não foi possível copiar. Cupom: ' + code);
-      }
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(code).then(done, fallback);
-      } else {
-        fallback();
-      }
-    });
-  });
-
   // ---------- CLIQUES NO WHATSAPP ----------
   document.querySelectorAll('[data-lead]').forEach(function (a) {
     a.addEventListener('click', function () { track('generate_lead', { form_id: a.dataset.lead }); });
@@ -214,14 +195,9 @@
   var fields = form.elements;
   var status = document.getElementById('form-status');
 
-  // botões dos cards já preenchem o formulário
+  // botões dos formatos já selecionam o tipo no formulário
   document.querySelectorAll('[data-format]').forEach(function (a) {
     a.addEventListener('click', function () { fields.formato.value = a.dataset.format; });
-  });
-  document.querySelectorAll('[data-message]').forEach(function (a) {
-    a.addEventListener('click', function () {
-      if (!fields.mensagem.value.trim()) fields.mensagem.value = a.dataset.message;
-    });
   });
 
   function value(name) { return fields[name].value.trim(); }

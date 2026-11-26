@@ -17,7 +17,7 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="Lucassantuss">
 <meta property="og:title" content="Lucassantuss | Sua marca em movimento">
-<meta property="og:description" content="Conteúdo de corrida, fitness e lifestyle. Veja métricas, marcas parceiras e solicite uma proposta.">
+<meta property="og:description" content="Conteúdo de corrida, fitness e lifestyle. Veja métricas, marcas e solicite uma proposta.">
 <meta property="og:url" content="https://www.lucassantuss.com.br/run/">
 <meta property="og:image" content="https://www.lucassantuss.com.br/run/assets/imgs/og-image.jpg">
 <meta property="og:image:width" content="1200">
@@ -25,7 +25,7 @@
 <meta property="og:image:alt" content="Sua marca em movimento: Lucassantuss correndo uma prova de rua">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Lucassantuss | Sua marca em movimento">
-<meta name="twitter:description" content="Conteúdo de corrida, fitness e lifestyle. Métricas, marcas parceiras e proposta comercial.">
+<meta name="twitter:description" content="Conteúdo de corrida, fitness e lifestyle. Métricas, marcas e proposta comercial.">
 <meta name="twitter:image" content="https://www.lucassantuss.com.br/run/assets/imgs/og-image.jpg">
 
 <link rel="icon" href="./assets/icons/favicon.ico" sizes="any">
@@ -56,7 +56,7 @@
       "image": "https://www.lucassantuss.com.br/run/assets/imgs/hero-1200.webp",
       "jobTitle": "Criador de conteúdo e Analista de Sistemas",
       "description": "Criador de conteúdo de corrida de rua, fitness e lifestyle.",
-      "email": "mailto:lucassantuss@outlook.com",
+      "email": "mailto:contato@lucassantuss.com.br",
       "telephone": "+55-11-93340-1221",
       "knowsAbout": ["Corrida de rua", "Fitness", "Lifestyle", "Criação de conteúdo"],
       "sameAs": [
@@ -119,7 +119,6 @@
   </div>
   <div class="wrap">
     <div class="hero-copy">
-      <p class="eyebrow">Corrida • Fitness • Lifestyle</p>
       <h1>Sua marca <span>em movimento.</span></h1>
       <p class="lead">Sou o Lucas, criador de conteúdo de corrida, fitness e lifestyle. Conecto marcas ao universo da corrida por meio de experiências reais, conteúdo autêntico e uma comunidade apaixonada pelo esporte.</p>
       <div class="hero-ctas">
@@ -130,23 +129,13 @@
   </div>
 </section>
 
-<!-- FAIXA DE MARCAS -->
-<aside class="ticker" aria-label="Marcas parceiras">
-  <div class="wrap ticker-row">
-    <span>Já correram comigo</span>
-    <a href="#marcas">Max Titanium</a>
-    <a href="#marcas">Atomic Labs</a>
-  </div>
-</aside>
-
 <!-- ================= MÉTRICAS =================
-     Para atualizar um card: troque o texto, data-value, data-short, o detalhe e a data.
-     Atualize também a "Última atualização". Sem dado confiável, remova o card (nunca use 0). -->
+     Para atualizar um card: troque o texto, data-value, data-short e o detalhe.
+     Atualize também a "Última atualização". Painel de audiência: js/dados.js -->
 <section class="section" id="metricas">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="eyebrow">Métricas e resultados</p>
-      <h2>Audiência que acompanha cada quilômetro</h2>
+      <h2>Métricas</h2>
       <p>Última atualização: <time datetime="2026-11-04">04/11/2026</time></p>
     </div>
 
@@ -155,21 +144,19 @@
         <p class="metric-plat">Instagram</p>
         <p class="metric-value"><strong class="count" data-value="13666" data-short="13,6 mil">13,6 mil</strong></p>
         <p class="metric-label">Seguidores</p>
-        <p class="metric-sub"><b>13.666</b> no último registro</p>
         <a class="text-link" href="https://www.instagram.com/lucassantuss" target="_blank" rel="noopener">Ver perfil ↗</a>
       </article>
       <article class="metric metric-main">
         <p class="metric-plat">Instagram</p>
         <p class="metric-value"><strong class="count" data-value="36412" data-short="36,4 mil">36,4 mil</strong></p>
         <p class="metric-label">Visualizações em 30 dias</p>
-        <p class="metric-sub"><b>36.412</b> em um período de 30 dias</p>
         <a class="text-link" href="https://www.instagram.com/lucassantuss" target="_blank" rel="noopener">Ver perfil ↗</a>
       </article>
       <article class="metric">
         <p class="metric-plat">YouTube</p>
         <p class="metric-value"><strong class="count" data-value="129439" data-short="129.439">129.439</strong></p>
         <p class="metric-label">Visualizações no canal</p>
-        <p class="metric-sub"><b>1.879</b> inscritos · total acumulado</p>
+        <p class="metric-sub"><b>1.879</b> inscritos</p>
         <a class="text-link" href="https://www.youtube.com/@Lucassantuss" target="_blank" rel="noopener">Ver canal ↗</a>
       </article>
       <article class="metric">
@@ -183,24 +170,27 @@
         <p class="metric-plat">Strava</p>
         <p class="metric-value"><strong class="count" data-value="487" data-short="487">487</strong></p>
         <p class="metric-label">Seguidores</p>
-        <p class="metric-sub">Comunidade de corrida</p>
         <a class="text-link" href="https://linktr.ee/lucassantuss" target="_blank" rel="noopener">Ver links ↗</a>
       </article>
     </div>
 
-    <div class="more-metrics reveal">
-      <div>
+    <!-- Preenchido por js/dados.js (audiencia) -->
+    <div class="audience" id="audiencia" hidden>
+      <div class="audience-head">
         <h3>Dados detalhados da audiência</h3>
-        <p>Estes indicadores não estão publicados aqui no momento. Peça junto com a sua proposta.</p>
+        <p class="sample-flag" id="aud-flag">Dados de exemplo (fictícios), em atualização</p>
       </div>
-      <ul>
-        <li>Alcance total</li>
-        <li>Média de visualizações por Reels</li>
-        <li>Taxa de engajamento</li>
-        <li>Evolução do público</li>
-        <li>Dados demográficos</li>
-      </ul>
-      <a href="#contato" class="btn btn-ghost btn-sm" data-message="Gostaria de receber os dados detalhados da audiência (alcance, Reels, engajamento, evolução e demografia).">Pedir esses dados</a>
+      <div class="audience-grid">
+        <dl class="kpis" id="aud-kpis"></dl>
+        <figure class="panel">
+          <figcaption>Evolução do público</figcaption>
+          <ul class="columns" id="aud-growth"></ul>
+        </figure>
+        <figure class="panel">
+          <figcaption>Dados demográficos</figcaption>
+          <div id="aud-demo"></div>
+        </figure>
+      </div>
     </div>
   </div>
 </section>
@@ -212,22 +202,15 @@
       <img src="./assets/imgs/sobre-800.webp" srcset="./assets/imgs/sobre-480.webp 480w, ./assets/imgs/sobre-800.webp 800w" sizes="(max-width: 900px) 90vw, 480px" alt="Lucas Santos com a camiseta da Meia Maratona Internacional de São Paulo e número de peito" width="800" height="1086" loading="lazy" decoding="async">
     </div>
     <div class="reveal">
-      <p class="eyebrow">Sobre mim</p>
       <h2>Quem é Lucas Santos</h2>
       <p>Sou criador de conteúdo focado em <strong>corrida de rua, fitness e lifestyle</strong>. Tenho 24 anos, sou formado em Engenharia de Computação e atualmente atuo como Analista de Sistemas.</p>
       <p>Compartilho minha <strong>rotina de treinos, provas e evolução na corrida</strong>, com conteúdos leves e humor, conectando com pessoas que buscam saúde, performance e consistência.</p>
-      <ul class="check-list">
-        <li>Conteúdo autêntico, sem roteiro forçado</li>
-        <li>Conexão com iniciantes e corredores intermediários</li>
-        <li>Rotina real entre carreira em tecnologia, treinos e vida pessoal</li>
-      </ul>
       <a href="#contato" class="btn btn-primary">Vamos trabalhar juntos</a>
     </div>
   </div>
   <div class="wrap experience">
     <div class="reveal">
       <h3>Experiência esportiva</h3>
-      <p>Quando a marca precisa de cobertura presencial, eu já estou na largada.</p>
     </div>
     <ol class="timeline reveal">
       <li><strong>Circuito das Estações 2025</strong><span>Todas as provas do circuito</span></li>
@@ -239,47 +222,23 @@
   </div>
 </section>
 
-<!-- MARCAS (fotos, links e resultados: js/dados.js) -->
-<section class="section" id="marcas">
+<!-- MARCAS -->
+<section class="section section-compact" id="marcas">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="eyebrow">Experiência com marcas</p>
       <h2>Marcas que já correram comigo</h2>
-      <p>Uso e recomendo no meu dia a dia. Copie o cupom e aplique no checkout.</p>
     </div>
-    <div class="brand-grid">
-      <article class="brand-card reveal" data-brand="max-titanium">
-        <div class="brand-top">
-          <img src="./assets/imgs/max-titanium.webp" alt="Logo Max Titanium" width="160" height="160" loading="lazy" decoding="async">
-          <div>
-            <p class="tag">Parceria com cupom de afiliado</p>
-            <h3>Max Titanium</h3>
-            <p>Suplementação para quem treina e corre com consistência.</p>
-          </div>
-        </div>
-        <div class="brand-extra" hidden></div>
-        <div class="coupon">
-          <div><span>Meu cupom</span><code>MAX10LUCASSANTUSS</code></div>
-          <button class="btn btn-ghost btn-sm copy-btn" type="button" data-copy="MAX10LUCASSANTUSS">Copiar cupom</button>
-        </div>
-      </article>
-      <article class="brand-card reveal" data-brand="atomic-labs">
-        <div class="brand-top">
-          <img src="./assets/imgs/atomic-labs.webp" alt="Logo Atomic Labs" width="160" height="160" loading="lazy" decoding="async">
-          <div>
-            <p class="tag">Parceria com cupom de afiliado</p>
-            <h3>Atomic Labs</h3>
-            <p>Performance e suplementação para a rotina de treinos.</p>
-          </div>
-        </div>
-        <div class="brand-extra" hidden></div>
-        <div class="coupon">
-          <div><span>Meu cupom</span><code>LUCASSANTUSS</code></div>
-          <button class="btn btn-ghost btn-sm copy-btn" type="button" data-copy="LUCASSANTUSS">Copiar cupom</button>
-        </div>
-      </article>
-    </div>
-    <p class="fineprint">Cupons de afiliado. Condições e validade seguem as regras de cada loja.</p>
+    <ul class="brand-grid">
+      <li class="brand-card">
+        <img src="./assets/imgs/max-titanium.webp" alt="" width="96" height="96" loading="lazy" decoding="async">
+        <h3>Max Titanium</h3>
+      </li>
+      <li class="brand-card">
+        <img src="./assets/imgs/atomic-labs.webp" alt="" width="96" height="96" loading="lazy" decoding="async">
+        <h3>Atomic Labs</h3>
+      </li>
+    </ul>
+    <a class="btn btn-primary" href="https://linktr.ee/lucassantuss" target="_blank" rel="noopener">Acesse meus cupons</a>
   </div>
 </section>
 
@@ -287,7 +246,6 @@
 <section class="section section-alt" id="portfolio">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="eyebrow">Portfólio</p>
       <h2>Conteúdo na prática</h2>
       <p>Acesse minhas redes e veja os conteúdos originais.</p>
     </div>
@@ -317,53 +275,45 @@
 <section class="section" id="parcerias">
   <div class="wrap">
     <div class="section-head reveal">
-      <p class="eyebrow">Como podemos trabalhar</p>
       <h2>Formatos de parceria</h2>
-      <p>Escolha um formato ou combine vários em um pacote para a sua campanha.</p>
+      <p>Toque em um formato para solicitar uma proposta.</p>
     </div>
-    <div class="format-grid">
-      <article class="format">
-        <span class="format-num" aria-hidden="true">01</span>
+    <div class="format-list">
+      <a class="format" href="#contato" data-format="Reels patrocinados">
         <h3>Reels patrocinados</h3>
         <p>Vídeos que apresentam produtos, serviços e experiências de forma natural e autêntica.</p>
-        <a class="text-link" href="#contato" data-format="Reels patrocinados">Solicitar proposta<span class="sr-only"> de Reels patrocinados</span>&nbsp;→</a>
-      </article>
-      <article class="format">
-        <span class="format-num" aria-hidden="true">02</span>
+        <span aria-hidden="true">→</span>
+      </a>
+      <a class="format" href="#contato" data-format="Stories">
         <h3>Stories</h3>
         <p>Divulgação de produtos e campanhas, com links, cupons e chamadas para ação.</p>
-        <a class="text-link" href="#contato" data-format="Stories">Solicitar proposta<span class="sr-only"> de Stories</span>&nbsp;→</a>
-      </article>
-      <article class="format">
-        <span class="format-num" aria-hidden="true">03</span>
+        <span aria-hidden="true">→</span>
+      </a>
+      <a class="format" href="#contato" data-format="UGC">
         <h3>UGC</h3>
         <p>Vídeos e materiais produzidos para a sua marca usar nos canais oficiais.</p>
-        <a class="text-link" href="#contato" data-format="UGC">Solicitar proposta<span class="sr-only"> de UGC</span>&nbsp;→</a>
-      </article>
-      <article class="format">
-        <span class="format-num" aria-hidden="true">04</span>
+        <span aria-hidden="true">→</span>
+      </a>
+      <a class="format" href="#contato" data-format="Eventos esportivos">
         <h3>Eventos esportivos</h3>
         <p>Participação e cobertura de provas, lançamentos, ativações e eventos.</p>
-        <a class="text-link" href="#contato" data-format="Eventos esportivos">Solicitar proposta<span class="sr-only"> de Eventos esportivos</span>&nbsp;→</a>
-      </article>
-      <article class="format">
-        <span class="format-num" aria-hidden="true">05</span>
+        <span aria-hidden="true">→</span>
+      </a>
+      <a class="format" href="#contato" data-format="YouTube">
         <h3>YouTube</h3>
         <p>Reviews, apresentações e conteúdos mais aprofundados.</p>
-        <a class="text-link" href="#contato" data-format="YouTube">Solicitar proposta<span class="sr-only"> de YouTube</span>&nbsp;→</a>
-      </article>
-      <article class="format">
-        <span class="format-num" aria-hidden="true">06</span>
+        <span aria-hidden="true">→</span>
+      </a>
+      <a class="format" href="#contato" data-format="Campanhas recorrentes">
         <h3>Campanhas recorrentes</h3>
         <p>Relacionamento contínuo, com conteúdos e divulgações periódicas.</p>
-        <a class="text-link" href="#contato" data-format="Campanhas recorrentes">Solicitar proposta<span class="sr-only"> de Campanhas recorrentes</span>&nbsp;→</a>
-      </article>
-      <article class="format">
-        <span class="format-num" aria-hidden="true">07</span>
+        <span aria-hidden="true">→</span>
+      </a>
+      <a class="format" href="#contato" data-format="Projetos personalizados">
         <h3>Projetos personalizados</h3>
         <p>Campanhas sob medida, desenhadas a partir dos objetivos da empresa.</p>
-        <a class="text-link" href="#contato" data-format="Projetos personalizados">Solicitar proposta<span class="sr-only"> de Projetos personalizados</span>&nbsp;→</a>
-      </article>
+        <span aria-hidden="true">→</span>
+      </a>
     </div>
   </div>
 </section>
@@ -372,14 +322,12 @@
 <section class="section section-alt" id="contato">
   <div class="wrap contact-grid">
     <div class="reveal">
-      <p class="eyebrow">Contato comercial</p>
-      <h2>Vamos colocar sua marca na largada?</h2>
+      <h2>Vamos colocar sua marca em movimento?</h2>
       <p>Conte um pouco sobre sua campanha. Vamos desenvolver uma parceria que faça sentido para sua marca e para minha audiência.</p>
       <a class="btn btn-whats" href="https://wa.me/5511933401221?text=Ol%C3%A1%20Lucas%2C%20vim%20pelo%20seu%20site%20e%20quero%20falar%20sobre%20uma%20parceria" target="_blank" rel="noopener" data-lead="whatsapp-contato">Falar direto no WhatsApp</a>
       <ul class="contact-list">
         <li><span>WhatsApp</span><a href="https://wa.me/5511933401221" target="_blank" rel="noopener">(11) 93340-1221</a></li>
-        <li><span>E-mail</span><a href="mailto:lucassantuss@outlook.com">lucassantuss@outlook.com</a></li>
-        <li><span>Redes</span><p><a href="https://www.instagram.com/lucassantuss" target="_blank" rel="noopener">Instagram</a> <a href="https://www.youtube.com/@Lucassantuss" target="_blank" rel="noopener">YouTube</a> <a href="https://www.tiktok.com/@lucassantuss" target="_blank" rel="noopener">TikTok</a> <a href="https://linktr.ee/lucassantuss" target="_blank" rel="noopener">Linktree</a></p></li>
+        <li><span>E-mail</span><a href="mailto:contato@lucassantuss.com.br">contato@lucassantuss.com.br</a></li>
       </ul>
     </div>
     <form id="contact-form" class="lead-box reveal" novalidate>
@@ -421,7 +369,7 @@
 <!-- FAQ -->
 <section class="section" id="faq">
   <div class="wrap faq-list">
-    <div class="section-head reveal"><p class="eyebrow">Dúvidas</p><h2>Perguntas frequentes</h2></div>
+    <div class="section-head reveal"><h2>Perguntas frequentes</h2></div>
     <details class="faq-item">
       <summary>Que tipo de parceria você faz com marcas?</summary>
       <p>Reels patrocinados, stories, UGC, eventos esportivos, conteúdo no YouTube, campanhas recorrentes e projetos personalizados.</p>
@@ -432,7 +380,7 @@
     </details>
     <details class="faq-item">
       <summary>Como peço uma proposta?</summary>
-      <p>Use o formulário do site, chame no WhatsApp (11) 93340-1221 ou envie um e-mail para lucassantuss@outlook.com.</p>
+      <p>Use o formulário do site, chame no WhatsApp (11) 93340-1221 ou envie um e-mail para contato@lucassantuss.com.br.</p>
     </details>
   </div>
 </section>
@@ -447,9 +395,9 @@
       <a href="https://www.youtube.com/@Lucassantuss" target="_blank" rel="noopener">YouTube</a>
       <a href="https://www.tiktok.com/@lucassantuss" target="_blank" rel="noopener">TikTok</a>
       <a href="https://linktr.ee/lucassantuss" target="_blank" rel="noopener">Linktree</a>
-      <a href="#marcas">Cupons</a>
+      <a href="https://linktr.ee/lucassantuss" target="_blank" rel="noopener">Cupons</a>
       <a href="#faq">FAQ</a>
-      <a href="mailto:lucassantuss@outlook.com">E-mail</a>
+      <a href="mailto:contato@lucassantuss.com.br">E-mail</a>
     </p>
     <p class="copy">© <span id="year">2026</span> Lucas Araujo dos Santos. Todos os direitos reservados.</p>
   </div>
@@ -458,8 +406,6 @@
 <a href="https://wa.me/5511933401221?text=Ol%C3%A1%20Lucas%2C%20vim%20pelo%20seu%20site%20e%20quero%20falar%20sobre%20uma%20parceria" target="_blank" rel="noopener" class="whatsapp-float" data-lead="whatsapp-flutuante" aria-label="Falar no WhatsApp">
   <svg viewBox="0 0 32 32" fill="#fff" aria-hidden="true"><path d="M16.001 2.667c-7.364 0-13.334 5.97-13.334 13.333 0 2.353.615 4.66 1.783 6.684L2.667 29.333l6.815-1.788a13.28 13.28 0 0 0 6.519 1.72h.006c7.363 0 13.333-5.97 13.333-13.333S23.364 2.667 16.001 2.667zm0 24.4h-.005a11.06 11.06 0 0 1-5.635-1.543l-.404-.24-4.045 1.061 1.08-3.943-.263-.405a11.05 11.05 0 0 1-1.694-5.897c0-6.113 4.977-11.09 11.092-11.09 2.963 0 5.748 1.154 7.843 3.251a11.02 11.02 0 0 1 3.246 7.843c0 6.114-4.977 11.09-11.089 11.09zm6.083-8.307c-.333-.167-1.97-.972-2.276-1.083-.306-.111-.528-.167-.75.167-.222.333-.86 1.083-1.055 1.306-.194.222-.389.25-.722.083-.333-.167-1.406-.518-2.679-1.653-.99-.883-1.659-1.974-1.853-2.307-.194-.333-.02-.513.146-.679.15-.15.333-.389.5-.583.167-.194.222-.333.333-.556.111-.222.056-.417-.028-.583-.083-.167-.75-1.807-1.028-2.474-.271-.65-.546-.562-.75-.573-.194-.01-.417-.012-.639-.012s-.583.083-.889.417c-.306.333-1.167 1.14-1.167 2.78s1.195 3.224 1.361 3.446c.167.222 2.352 3.593 5.699 5.038.796.344 1.417.549 1.901.703.799.254 1.526.218 2.101.132.641-.096 1.97-.805 2.248-1.583.278-.778.278-1.444.194-1.583-.083-.14-.306-.222-.639-.389z"/></svg>
 </a>
-
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script src="./js/dados.js" defer></script>
 <script src="./js/script.js" defer></script>
