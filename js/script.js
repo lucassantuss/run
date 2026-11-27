@@ -82,7 +82,7 @@
   var aud = data.audiencia;
   var audBox = document.getElementById('audiencia');
   function percent(n) { return Math.max(0, Math.min(100, Number(n) || 0)); }
-  if (aud && audBox) {
+  if (aud && aud.mostrar === true && audBox) {
     var kpis = document.getElementById('aud-kpis');
     (aud.indicadores || []).forEach(function (k) {
       var item = create('div');

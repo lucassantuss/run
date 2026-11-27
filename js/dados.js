@@ -20,6 +20,7 @@ window.SITE_DATA = {
   // ATENÇÃO: os valores abaixo são FICTÍCIOS. Troque pelos dados reais dos Insights
   // e só então mude exemplo para false (isso remove o aviso da tela).
   audiencia: {
+    mostrar: false, // painel oculto por enquanto; troque para true para exibir
     exemplo: true,
     indicadores: [
       { nome: 'Alcance total', valor: '25 mil' },
