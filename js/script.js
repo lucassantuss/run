@@ -200,6 +200,42 @@
     a.addEventListener('click', function () { fields.formato.value = a.dataset.format; });
   });
 
+  // ---------- MÁSCARA DO WHATSAPP: (11) 90000-0000 ou (11) 0000-0000 ----------
+  function maskPhone(d) {
+    if (!d) return '';
+    if (d.length <= 2) return '(' + d;
+    var number = d.slice(2);
+    var cut = d.length > 10 ? 5 : 4;
+    return '(' + d.slice(0, 2) + ') ' + number.slice(0, cut) +
+      (number.length > cut ? '-' + number.slice(cut) : '');
+  }
+  fields.whatsapp.addEventListener('input', function (e) {
+    var input = e.target;
+    var raw = input.value;
+    if (/^\+5?5?$/.test(raw)) return; // ainda digitando o +55
+    var caret = input.selectionStart;
+    var before = raw.slice(0, caret).replace(/\D/g, '').length;
+    var digits = raw.replace(/\D/g, '');
+    // remove o código do país em números colados ou preenchidos pelo navegador
+    var typed = e.inputType === 'insertText' && (e.data || '').length === 1;
+    if (/^\s*\+55/.test(raw) || (!typed && /^55\d{10,11}$/.test(digits))) {
+      digits = digits.slice(2);
+      before = Math.max(0, before - 2);
+    }
+    // tecla Delete antes de um símbolo apaga o próximo número
+    if (e.inputType === 'deleteContentForward' && maskPhone(digits).length > raw.length) {
+      digits = digits.slice(0, before) + digits.slice(before + 1);
+    }
+    digits = digits.slice(0, 11);
+    input.value = maskPhone(digits);
+    // mantém o cursor depois do mesmo número
+    var pos = 0;
+    for (var seen = 0; pos < input.value.length && seen < before; pos++) {
+      if (/\d/.test(input.value.charAt(pos))) seen++;
+    }
+    if (document.activeElement === input) input.setSelectionRange(pos, pos);
+  });
+
   function value(name) { return fields[name].value.trim(); }
 
   function validate() {
@@ -216,7 +252,7 @@
     if (!email && !phone) fail(['email', 'whatsapp'], 'Informe um e-mail ou WhatsApp.');
     if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) fail(['email'], 'Confira o e-mail.');
     var digits = phone.replace(/\D/g, '').length;
-    if (phone && (digits < 10 || digits > 15)) fail(['whatsapp'], 'Confira o WhatsApp (com DDD).');
+    if (phone && (digits < 10 || digits > 11)) fail(['whatsapp'], 'Confira o WhatsApp (com DDD).');
     return { errors: errors, invalid: invalid };
   }
 
